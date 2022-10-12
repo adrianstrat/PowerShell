@@ -55,7 +55,8 @@ Write-Host $response.Content
 #what would you like when no IP addresses are returned (domains only with SOA) or obviously false records are returned (127.0.0.1)?
 
 #Step3: The report file should be in a CSV format and produced by the powershell code.
-#how to deal with multiple values per column "1,2,3"?$responseObject = ConvertFrom-JSON ($response.Content)
+#how to deal with multiple values per column "1,2,3"?
+$responseObject = ConvertFrom-JSON ($response.Content)
 $domainList = $responseObject.result.main_series.domain
 $hashlist = @()
 $csvColumnHeaders = '"Domain","Host_IPs","SOA_Name","SOA_IPs"'
